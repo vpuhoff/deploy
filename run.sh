@@ -1,0 +1,1 @@
+ansible-playbook ./ansible/elk-ctl.yml  -i ansible/environment/alpha/prom/all.yml -e "hosts=all"  --vault-password-file=./vault-pass.txt

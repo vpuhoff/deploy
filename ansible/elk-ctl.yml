@@ -1,0 +1,16 @@
+---
+- name: Test
+  # hosts: '{{ hosts }}'
+  hosts: microhost
+  gather_facts: false
+  serial: 1
+  register: testout
+  roles:
+  - elk-ctl
+  tasks:
+  - ping:
+  #Vars:
+  #name_overlay
+- name: dump test output
+  debug:
+    msg: '{{ testout }}'

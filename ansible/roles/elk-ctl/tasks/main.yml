@@ -1,0 +1,28 @@
+# - name: Stop jenkins service
+#   shell: 'sudo service jenkins stop'
+#   when: task != 'start'
+
+# - name: Start jenkins service
+#   shell: 'sudo service jenkins start'
+#   when: task != 'stop' and jenkins == 'slave'
+
+# - name: Start jenkins service
+#   shell: 'sudo service jenkins start'
+#   when: task != 'stop' and active_master == inventory_hostname and jenkins == 'master'
+#   ignore_errors: True
+
+# - name: Wait for Jenkins to start
+#   uri:
+#     url: "{{ jenkins_instance_url }}"
+#     return_content: true
+#     status_code: 200,403
+#   register: wait_result
+#   until:
+#     - wait_result.status in [200, 403]
+#     - wait_result.msg.find("Please wait while") == -1
+#   retries: "{{ jenkins_connection_retries }}"
+#   delay: "{{ jenkins_connection_delay }}"
+#   when: task != 'stop' and active_master == inventory_hostname and jenkins == 'master'
+
+- name: Test connection
+  shell: 'ls'

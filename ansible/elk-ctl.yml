@@ -3,14 +3,10 @@
   # hosts: '{{ hosts }}'
   hosts: microhost
   gather_facts: false
-  serial: 1
-  register: testout
+#   serial: 1
   roles:
   - elk-ctl
   tasks:
   - ping:
   #Vars:
   #name_overlay
-- name: dump test output
-  debug:
-    msg: '{{ testout }}'
